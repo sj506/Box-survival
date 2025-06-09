@@ -128,6 +128,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 331202468}
+  - component: {fileID: 331202469}
+  - component: {fileID: 331202470}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -150,6 +152,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &331202469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331202467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ea4c69d2a13614d84b7c4af297c898, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2014684758}
+  background: {fileID: 945487676}
+  backgroundOffset: {x: 0, y: 0}
+--- !u!114 &331202470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331202467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5473171a3ebd3a9468562e62e1a6a22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefabs:
+  - {fileID: 8360287429248474529, guid: 8e7ed4f3a4c818145a701c5a10fa6440, type: 3}
+  - {fileID: 8360287429248474529, guid: ffaf2104d3eb4c448befec8c60577990, type: 3}
+  - {fileID: 8360287429248474529, guid: e7cd0595ee6b7b547a2405b820a8471f, type: 3}
+  spawnInterval: 1
+  spawnDistance: 10
+  player: {fileID: 2014684758}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2014684758}
-  smoothingFactor: 5
-  distance: 5
+  smoothingFactor: 1.5
+  distance: 1.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,7 +525,7 @@ GameObject:
   - component: {fileID: 2014684759}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -577,6 +613,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  bulletPrefab: {fileID: 6411969855049242742, guid: 773776cb6ffb1e841b590052e00ab977, type: 3}
+  firePoint: {fileID: 2014684758}
+  fireRate: 0.5
+  targetDistance: 3
 --- !u!58 &2014684760
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -607,7 +647,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
